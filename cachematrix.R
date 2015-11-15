@@ -7,6 +7,15 @@
 ##        [,1] [,2]
 ##  [1,]   -2  1.5
 ##  [2,]    1 -0.5
+# ie. > m <- makeCacheMatrix(mat)
+# > m$get()
+# [,1] [,2]
+# [1,]    1    3
+# [2,]    2    4
+# > cacheSolve(m)
+# [,1] [,2]
+# [1,]   -2  1.5
+# [2,]    1 -0.5
 
 ## It however will 1st try to find out if matrix's inverse was previously calculated. 
 ## If yes, then returns cached value otherwise calculates inverse using solve function. 
@@ -38,7 +47,6 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## cacheSolve is wrapper over Solve which attempts to get cached value of inverse of matrix. if found then returns from cache;
 ## otherwise uses Solve to calculate inverse and set the same in cache.
-
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
